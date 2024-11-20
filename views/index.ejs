@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropbox File Management</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <h1>Blog website</h1>
+    <background-image src="/public/blog.jpeg"></background-image>
+
+    <!-- Upload and Download Buttons -->
+    <div>
+        <button onclick="showForm('upload-file')">Upload a File</button>
+        <button onclick="showForm('download-file')">Download a File</button>
+    </div>
+
+    <!-- Forms for Uploading and Downloading Files -->
+    <div id="forms">
+        <!-- Upload Form -->
+        <form id="upload-file" action="/upload-file" method="post" enctype="multipart/form-data" style="display:none;">
+            <h2>Upload a File</h2>
+            <label for="file">Choose file:</label>
+            <input type="file" id="file" name="file" required><br><br>
+            <button type="submit">Upload</button>
+        </form>
+
+        <!-- Download Form -->
+        <form id="download-file" action="/download-file" method="get" style="display:none;">
+            <h2>Download a File</h2>
+            <label for="fileName">File Name:</label>
+            <input type="text" id="fileName" name="fileName" required><br><br>
+            <button type="submit">Download</button>
+        </form>
+    </div>
+
+    <!-- JavaScript to Show Forms -->
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('#forms form').forEach(form => form.style.display = 'none');
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
